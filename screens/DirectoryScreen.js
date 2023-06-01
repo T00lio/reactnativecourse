@@ -10,7 +10,7 @@ function DirectoryScreen({ navigation }) {
 
   const renderDirectoryItem = ({item: campsite}) => {
     return (
-        <ListItem onPress={() => navigation.navigate('CampsiteInfo', { campsite})}>
+        <ListItem onPress={() => navigation.navigate('CampsiteInfo', { campsite })}>
             <Avatar source={campsite.image} rounded/>
             <ListItem.Content>
                 <ListItem.Subtitle>

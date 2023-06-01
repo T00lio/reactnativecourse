@@ -2,10 +2,11 @@ import Main from "./screens/MainComponent";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  return 
+  return (
     <NavigationContainer>
-      <Main/>
-    </NavigationContainer>  
+        <Main />
+    </NavigationContainer>
+  )
     
 }
 
