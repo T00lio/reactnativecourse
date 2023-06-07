@@ -11,7 +11,6 @@ const RenderCampsite = ({ campsite }) => {
                         flex: 1
                     }}
                     >
-
                         <Text
                             style={{
                                 color: 'white',
@@ -30,7 +29,9 @@ const RenderCampsite = ({ campsite }) => {
             </Card>
         )
     }
-    return <View />;
+    return (
+        <View />
+    );
 }
 
 export default RenderCampsite;
