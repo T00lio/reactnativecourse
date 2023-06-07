@@ -112,8 +112,6 @@ const Main = () => {
                     component={ContactNavigator}
                     
                 />
-
-            
             </Drawer.Navigator> 
         </View>
     );
