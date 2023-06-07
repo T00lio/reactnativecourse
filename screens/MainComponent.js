@@ -236,8 +236,7 @@ const styles = StyleSheet.create({
         margin: 10,
         height: 60,
         width: 60
-    }
-    
+    },    
     stackIcon: {
         marginLeft: 10,
         color: '#fff',
