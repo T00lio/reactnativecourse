@@ -27,10 +27,6 @@ const RenderCampsite = ({ campsite }) => {
                 </Text> 
 
             </Card>
-        )
-    }
-    return (
-        <View />
     );
 }
 
