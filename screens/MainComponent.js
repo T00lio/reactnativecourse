@@ -1,17 +1,24 @@
-import { Platform, StyleSheet, View, Text, Image } from 'react-native';
+import { Image, Platform, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 import CampsiteInfoScreen from './CampsiteInfoScreen';
 import DirectoryScreen from './DirectoryScreen';
 import { createStackNavigator } from '@react-navigation/stack';
-import {    createDrawerNavigator, 
-            DrawerContentScrollView, 
-            DrawerItemList 
-        } from '@react-navigation/drawer';
+import {
+    createDrawerNavigator,
+    DrawerContentScrollView,
+    DrawerItemList
+} from '@react-navigation/drawer';
 import HomeScreen from './HomeScreen';
 import AboutScreen from './AboutScreen';
 import ContactScreen from './ContactScreen';
 import { Icon } from 'react-native-elements';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchPartners } from '../features/partners/partnersSlice';
+import { fetchCampsites } from '../features/campsites/campsitesSlice';
+import { fetchPromotions } from '../features/promotions/promotionsSlice';
+import { fetchComments } from '../features/comments/commentsSlice';
 
 const Drawer = createDrawerNavigator();
 
@@ -122,12 +129,12 @@ const DirectoryNavigator = () => {
 };
 
 const CustomDrawerContent = (props) => (
-    <DrawerContentScrollView>
-        <View>
-            <View style={{ flex: 1}}>
+    <DrawerContentScrollView {...props}>
+        <View style={styles.drawerHeader}>
+            <View style={{ flex: 1 }}>
                 <Image source={logo} style={styles.drawerImage} />
             </View>
-            <View style={{ flex: 2}}>
+            <View style={{ flex: 2 }}>
                 <Text style={styles.drawerHeaderText}>NuCamp</Text>
             </View>
         </View>
@@ -136,6 +143,15 @@ const CustomDrawerContent = (props) => (
 );
 
 const Main = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCampsites());
+        dispatch(fetchPromotions());
+        dispatch(fetchPartners());
+        dispatch(fetchComments());
+    }, [dispatch]);
+
     return (
         <View
             style={{
@@ -236,7 +252,7 @@ const styles = StyleSheet.create({
         margin: 10,
         height: 60,
         width: 60
-    },    
+    },
     stackIcon: {
         marginLeft: 10,
         color: '#fff',
