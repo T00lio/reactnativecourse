@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Modal, Button } from 'react-native';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RenderCampsite from '../features/campsites/RenderCampsite';
@@ -113,14 +113,16 @@ const CampsiteInfoScreen = ({ route }) => {
                                 handleSubmit()
                                 resetForm()    
                             }}
-                            color='#5637dd'
+                            color='#5637DD'
                             title='Submit'
-                        ></Button>
+                        />
+                    </View>
+                    <View style={{margin: 10}}>
                         <Button 
                             onPress={() => setShowModal(!showModal)}
                             color='#808080'
                             title='Cancel'
-                        ></Button>
+                        />
                     </View>
                 </View>              
             </Modal>
