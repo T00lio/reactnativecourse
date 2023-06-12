@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Text, View, ScrollView, StyleSheet, Switch, Button, Modal } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { DateTimePicker }  from '@react-native-community/datetimepicker';
 
 const ReservationScreen = () => {
     const [campers, setCampers] = useState(1);
