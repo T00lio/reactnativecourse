@@ -41,7 +41,14 @@ const CampsiteInfoScreen = ({ route }) => {
         return (
             <View style={styles.commentItem}>
                 <Text style={{ fontSize: 14 }}>{item.text}</Text>
-                <Text style={{ fontSize: 12 }}>{item.rating}</Text>
+                <Rating
+                    style={{ 
+                        alignItems: 'flex-start', 
+                        paddingVertical:'5%'
+                    }}  imageSize={10}
+                        startingValue={item.rating}
+                        readonly
+                    />
                 <Text style={{ fontSize: 12 }}>
                     {`-- ${item.author}, ${item.date}`}
                 </Text>
@@ -95,16 +102,16 @@ const CampsiteInfoScreen = ({ route }) => {
                         value={author}
                     />
                     <Input
-                    placeholder='Comment'
-                    leftIcon={{ type: 'font-awesome', name:'comment-o'}}
-                    onChangeText={(text) => setText(text)}
-                    value={text}
+                        placeholder='Comment'
+                        leftIcon={{ type: 'font-awesome', name:'comment-o'}}
+                        onChangeText={(text) => setText(text)}
+                        value={text}
                     />
                     <View style={{margin: 10}}>
                         <Button
                             onPress={() => {
-                            handleSubmit()
-                            resetForm()    
+                                handleSubmit()
+                                resetForm()    
                             }}
                             color='#5637dd'
                             title='Submit'
